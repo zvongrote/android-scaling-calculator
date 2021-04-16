@@ -3,6 +3,7 @@ import unittest
 from random import randrange, random
 from sys import maxsize
 
+
 class DimensionTest(unittest.TestCase):
 
     def test_width_and_height(self):
@@ -25,6 +26,7 @@ class DimensionTest(unittest.TestCase):
 
         self.assertAlmostEqual(new_dimension.width, width * scaling_factor)
         self.assertAlmostEqual(new_dimension.height, height * scaling_factor)
+
 
 if __name__ == "__main__":
     unittest.main()
