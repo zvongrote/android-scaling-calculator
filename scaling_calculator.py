@@ -26,29 +26,30 @@ def scale_dimension(dimension: Dimension, base_density: str, target_density: str
     return scaled_dimension
 
 
-# Parse input
-parser = argparse.ArgumentParser(
-    "Calculates dimensions of a bitmap for different pixel densities.")
+if __name__ == "__main__":
+    # Parse input
+    parser = argparse.ArgumentParser(
+        "Calculates dimensions of a bitmap for different pixel densities.")
 
-parser.add_argument("width",
-                    type=float,
-                    help="Width to scale")
-parser.add_argument("height",
-                    type=float,
-                    help="Height to scale")
-parser.add_argument("-d", "--density",
-                    choices=["l", "m", "h", "xh", "xxh", "xxxh"],
-                    default="m",
-                    help="Starting pixel density")
-parser.add_argument("-r", "--rounding-mode",
-                    choices=["up", "down", "regular", "none"],
-                    default="regular",
-                    help="How to round the results")
+    parser.add_argument("width",
+                        type=float,
+                        help="Width to scale")
+    parser.add_argument("height",
+                        type=float,
+                        help="Height to scale")
+    parser.add_argument("-d", "--density",
+                        choices=["l", "m", "h", "xh", "xxh", "xxxh"],
+                        default="m",
+                        help="Starting pixel density")
+    parser.add_argument("-r", "--rounding-mode",
+                        choices=["up", "down", "regular", "none"],
+                        default="regular",
+                        help="How to round the results")
 
-args = parser.parse_args()
+    args = parser.parse_args()
 
-# Create the base dimension
-base_dimensions = Dimension(int(args.width), int(args.height))
+    # Create the base dimension
+    base_dimensions = Dimension(int(args.width), int(args.height))
 
-# Map containing the name and scaling ratio for each density
-densities = {"l": 3, "m": 4, "h": 6, "xh": 8, "xxh": 12, "xxxh": 16}
+    # Map containing the name and scaling ratio for each density
+    densities = {"l": 3, "m": 4, "h": 6, "xh": 8, "xxh": 12, "xxxh": 16}
