@@ -1,5 +1,5 @@
 import unittest
-from scaling_calculator import Dimension, default_round, scale_dimension
+from scaling_calculator import Dimension, scale_dimension
 
 
 class ScaleTest(unittest.TestCase):
@@ -9,10 +9,9 @@ class ScaleTest(unittest.TestCase):
         densities = {"m": 4, "h": 6}
         base_density = "m"
         target_density = "h"
-        round_function = default_round
 
         scaled_dimension = scale_dimension(
-            base_dimension, base_density, target_density, densities, round_function)
+            base_dimension, base_density, target_density, densities)
 
         self.assertEqual(scaled_dimension.width, 30)
         self.assertEqual(scaled_dimension.height, 45)
@@ -22,10 +21,9 @@ class ScaleTest(unittest.TestCase):
         densities = {"m": 4, "h": 6}
         base_density = "h"
         target_density = "m"
-        round_function = default_round
 
         scaled_dimension = scale_dimension(
-            base_dimension, base_density, target_density, densities, round_function)
+            base_dimension, base_density, target_density, densities)
 
         self.assertEqual(scaled_dimension.width, 20)
         self.assertEqual(scaled_dimension.height, 30)
@@ -35,10 +33,9 @@ class ScaleTest(unittest.TestCase):
         densities = {"m": 4, "h": 6}
         base_density = "m"
         target_density = "h"
-        round_function = default_round
 
         scaled_dimension = scale_dimension(
-            base_dimension, base_density, target_density, densities, round_function)
+            base_dimension, base_density, target_density, densities)
 
         self.assertEqual(scaled_dimension.width, 141)
         self.assertEqual(scaled_dimension.height, 186)
@@ -48,10 +45,9 @@ class ScaleTest(unittest.TestCase):
         densities = {"m": 4, "h": 6}
         base_density = "h"
         target_density = "m"
-        round_function = default_round
 
         scaled_dimension = scale_dimension(
-            base_dimension, base_density, target_density, densities, round_function)
+            base_dimension, base_density, target_density, densities)
 
         self.assertEqual(scaled_dimension.width, 31)
         self.assertEqual(scaled_dimension.height, 111)
