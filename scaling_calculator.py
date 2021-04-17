@@ -1,29 +1,5 @@
-from __future__ import annotations
 import argparse
-from math import ceil, floor
-
-
-# Python's built in rounding function uses "bankers' rounding" which rounds halfs to the nearest even number.
-# For example: 2.5 rounds to 2 instead of 3.
-# This function always rounds half values up.
-def half_round_up(f: float) -> float:
-    if f - floor(f) < 0.5:
-        return floor(f)
-    else:
-        return ceil(f)
-
-class Dimension:
-    def __init__(self, width: float, height: float) -> None:
-        self.width = width
-        self.height = height
-
-    def scale(self, ratio: float) -> Dimension:
-        # Scale the width by the given ratio, then scale the height according to the original aspect ratio:
-        # original height / original width = new height / new width -> new height = new width * (original height / original width)
-        scaled_width = half_round_up(self.width * ratio)
-        scaled_height = half_round_up(scaled_width * ( self.height / self.width))
-
-        return Dimension(scaled_width, scaled_height)
+from dimension import Dimension
 
 
 def scale_dimension(dimension: Dimension, base_density: str, target_density: str, densities: dict[str, int]) -> Dimension:
